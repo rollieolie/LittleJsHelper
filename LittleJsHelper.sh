@@ -179,7 +179,7 @@ while getopts ":hdlusJb:" option; do
             rm jsurls.txt
             rm insideContent.txt
             rm InsidePaths.txt
-            rm jspaths.txt
+  
             exit;;
         l) # -l <hosts.txt>
             UseAFile $2
@@ -198,7 +198,7 @@ while getopts ":hdlusJb:" option; do
             rm jsurls.txt
             rm insideContent.txt
             rm InsidePaths.txt
-            rm jspaths.txt
+            
             exit;;
         s) # Just the paths in source code
             PathsInContent $2
@@ -216,7 +216,7 @@ while getopts ":hdlusJb:" option; do
             rm jsurls.txt
             rm insideContent.txt
             rm InsidePaths.txt
-            rm jspaths.txt
+            
             exit;;
         b) # On the spot js paths finding
             BingBangJs $2
