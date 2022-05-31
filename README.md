@@ -23,8 +23,9 @@ This is a bash script with a little Python3.
 2. cd LittleJsHelper
 3. run ./copy_touserbin.sh - copies programs I created to /usr/bin/$programName so they can run onces called in main program
 4. If you don't want to do that you can mannually change the programs path in main program or how you please ex: GetUrl changed to ~/path/to/GetUrl.py
-5. To run it - ./LittleJsHelper.sh -h for options or copy to /usr/bin/ then LittleJsHelper -h
-6. Don't forget to add sudo if needed and to chmod +x $program when needed
+5. Please install sponge on your terminal. apt-get insatll moreutils. This allows you to cat out a file and change it then save it to the same file name.
+6. To run it - ./LittleJsHelper.sh -h for options or copy to /usr/bin/ then LittleJsHelper -h
+7. Don't forget to add sudo if needed and to chmod +x $program when needed
 ```
 
 ### Using Little JS Helper
