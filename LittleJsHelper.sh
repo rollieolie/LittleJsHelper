@@ -6,9 +6,9 @@
 
 
 Start(){
-python3 ~/beauty_js.py $1 | tee UrlContent.txt;
+beauty_js $1 | tee UrlContent.txt;
 cat UrlContent.txt | grep -iEho "https?://[^\"\\'>]+"| sort -u | grep "\.js" > jsurls.txt
-python3 ~/GetUrl.py $1 > insideContent.txt
+GetUrl $1 > insideContent.txt
 cat insideContent.txt | grep -iEho "https?://[^\"\\'>]+|\/[A-Za-z0-9_\-\/]*" | sort -u > InsidePaths.txt;
 }
 
@@ -72,7 +72,7 @@ cat morestuff.txt | grep -iEho "\/[A-Za-z0-9_\-\/]*" > allpaths.txt
 
 UseAFile(){
 while read url;do
-    python3 ~/GetUrl.py $url
+    GetUrl $url
     cat UrlContent.txt | grep -iEho "https?://[^\"\\'>]+|\/[A-Za-z0-9_\-\/]*" | sort -u > InsidePaths.txt;
     cat UrlContent.txt | grep -iEho "https?://[^\"\\'>]+"| sort -u | grep "\.js" > jsurls.txt
     while read js;do
@@ -105,7 +105,7 @@ done<$1
 
 
 BingBangJs(){
-python3 ~/GetUrl.py $1 > jscontent.txt
+GetUrl $1 > jscontent.txt
 cat jscontent.txt | grep -iEho "https?://[^\"\\'>]+|\/[A-Za-z0-9_\-\/]*" > urlsnpaths.txt
 echo
 echo
@@ -128,7 +128,7 @@ echo
 
 
 PathsInContent(){
-python3 ~/GetUrl.py $1 > urlcontent.txt
+GetUrl $1 > urlcontent.txt
 cat urlcontent.txt | grep -iEho "https?://[^\"\\'>]+|\/[A-Za-z0-9_\-\/]*" > urlsnpaths.txt
 cat urlsnpaths.txt | sort -u | sponge urlsnpaths.txt
 cat urlsnpaths.txt
