@@ -174,7 +174,7 @@ while getopts ":hdlusJb:" option; do
             exit;;
         d) # -d <https://URL_Path>
             Start $2
-            End $j $2
+            End $2 $j
             rm UrlContent.txt
             rm jsurls.txt
             rm insideContent.txt
