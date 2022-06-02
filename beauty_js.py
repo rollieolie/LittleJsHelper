@@ -11,5 +11,24 @@ soup = BeautifulSoup(r.content,'html.parser')
 bob = soup.find_all('script')
 for stuff in bob:
     if 'src' in stuff.attrs:
-        bob = stuff.attrs['src']
-        print(bob)
+        try:
+            bob = stuff.attrs['src']
+            b = requests.get(bob)
+            bobn = b.status_code
+            if bobn == 200:
+                print(bob)
+            else:
+                tom = url + bob
+                print(tom)
+        except requests.exceptions.MissingSchema:
+            try:
+                b = requests.get('https:'+bob)
+                bobn = b.status_code
+                if bobn == 200:
+                    print(bob)
+                else:
+                    tom = url + bob
+                    print(tom)
+            except requests.exceptions.InvalidURL:
+                tom = url + bob
+                print(tom)
